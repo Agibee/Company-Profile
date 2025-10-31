@@ -57,6 +57,12 @@
   <!-- Page level custom scripts -->
   <script src="assets/js/demo/chart-area-demo.js"></script>
   <script src="assets/js/demo/chart-pie-demo.js"></script>
+  <!-- Page level plugins -->
+  <script src="assets/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="assets/js/demo/datatables-demo.js"></script>
   <!-- TinyMCE 5 CDN (gratis, no API key) -->
   <!-- TinyMCE 7 (pakai API key) -->
   <script src="https://cdn.tiny.cloud/1/7a2rhtkgqgf4s7gbuy9rpszbzr19vge6gxitpktrpd78io87/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
@@ -69,7 +75,7 @@
               height: 400
           });
       });
-  </script>
+  </script> 
   <script>
       document.addEventListener("DOMContentLoaded", function() {
           tinymce.init({
