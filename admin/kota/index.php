@@ -50,20 +50,4 @@
                     </tbody>
                 </table>
             </div>
-            <script>
-                $(document).ready(function() {
-                    $('#dataTable').DataTable({
-                        "pageLength": 5, // jumlah baris per halaman
-                        "lengthMenu": [5, 10, 25, 50], // opsi dropdown jumlah baris
-                        "language": {
-                            "lengthMenu": "Tampilkan _MENU_ data per halaman",
-                            "zeroRecords": "Tidak ada data yang ditemukan",
-                            "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
-                            "infoEmpty": "Tidak ada data tersedia",
-                            "infoFiltered": "(difilter dari total _MAX_ data)"
-                        }
-                    });
-                });
-            </script>
-            <!-- /.container-fluid -->
         </div>

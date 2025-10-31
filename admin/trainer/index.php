@@ -66,23 +66,5 @@
             </div>
         </div>
     </div>
-
-    <!-- DataTables Script -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable({
-                "pageLength": 5,
-                "lengthMenu": [5, 10, 25, 50],
-                "language": {
-                    "lengthMenu": "Tampilkan _MENU_ data per halaman",
-                    "zeroRecords": "Tidak ada data yang ditemukan",
-                    "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada data tersedia",
-                    "infoFiltered": "(difilter dari total _MAX_ data)"
-                }
-            });
-        });
-    </script>
-
 </div>
 <!-- /.container-fluid -->

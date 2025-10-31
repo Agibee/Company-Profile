@@ -7,11 +7,11 @@
     </p>
 
     <div class="card shadow mb-4">
-        <div class="card-header py-3 d-flex justify-content-between align-items-center">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Artikel</h6>
-            <a href="?page=artikel/tambah" class="btn btn-success btn-sm">
-                <i class="fa fa-plus"></i> Tambah Artikel
+        <div class="card-header py-3">
+            <a href="?page=artikel/tambah" class="btn btn-primary">
+                <i class="fa fa-plus"></i> Tambah Data
             </a>
+            </h6>
         </div>
 
         <div class="card-body">
@@ -69,25 +69,3 @@
         </div>
     </div>
 </div>
-
-<!-- DataTables Script -->
-<script>
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "pageLength": 5,
-            "lengthMenu": [5, 10, 25, 50],
-            "language": {
-                "lengthMenu": "Tampilkan _MENU_ data per halaman",
-                "zeroRecords": "Tidak ada data ditemukan",
-                "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
-                "infoEmpty": "Tidak ada data tersedia",
-                "infoFiltered": "(difilter dari total _MAX_ data)",
-                "search": "Cari:",
-                "paginate": {
-                    "previous": "Sebelumnya",
-                    "next": "Berikutnya"
-                }
-            }
-        });
-    });
-</script>

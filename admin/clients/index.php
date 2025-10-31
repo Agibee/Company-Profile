@@ -3,12 +3,7 @@
 
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tabel Client</h1>
-    <p class="mb-4">
-        DataTables adalah plugin pihak ketiga yang digunakan untuk menampilkan tabel di bawah ini secara interaktif.
-        Untuk informasi lebih lanjut mengenai DataTables, silakan kunjungi
-        <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
-    </p>
-
+    <p class="mb-4">Berikut adalah data client yang telah mengikuti tes STIFIn.</p>
     <!-- DataTables Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -71,23 +66,5 @@
             </div>
         </div>
     </div>
-
-    <!-- DataTables Script -->
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable({
-                "pageLength": 5,
-                "lengthMenu": [5, 10, 25, 50],
-                "language": {
-                    "lengthMenu": "Tampilkan _MENU_ data per halaman",
-                    "zeroRecords": "Tidak ada data yang ditemukan",
-                    "info": "Menampilkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada data tersedia",
-                    "infoFiltered": "(difilter dari total _MAX_ data)"
-                }
-            });
-        });
-    </script>
-
 </div>
 <!-- /.container-fluid -->
