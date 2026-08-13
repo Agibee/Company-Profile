@@ -4,10 +4,9 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tabel Cabang</h1>
     <p class="mb-4">
-        DataTables adalah plugin pihak ketiga yang digunakan untuk menampilkan tabel di bawah ini secara interaktif.
-        Untuk informasi lebih lanjut mengenai DataTables, silakan kunjungi
-        <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.
+        Data di bawah ini menampilkan daftar cabang secara lengkap. Kamu bisa menambah, mengubah, atau menghapus data sesuai kebutuhan.
     </p>
+
 
     <!-- DataTables Example -->
     <div class="card shadow mb-4">
@@ -55,9 +54,12 @@
                                     <a href="?page=cabang/ubah&id_cabang=<?= $cabang['id_cabang']; ?>" class="btn btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="hapus.php?id_cabang=<?= $cabang['id_cabang']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                    <a href="?page=cabang/hapus&id_cabang=<?= $cabang['id_cabang']; ?>"
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Yakin ingin menghapus cabang <?= addslashes($cabang['nama_cabang']); ?>?');">
                                         <i class="fa fa-trash"></i>
                                     </a>
+
                                 </td>
                             </tr>
                         <?php

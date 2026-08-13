@@ -53,9 +53,12 @@
                                     <a href="?page=clients/ubah&id_client=<?= $client['id_client']; ?>" class="btn btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="hapus.php?id_client=<?= $client['id_client']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin ingin menghapus data ini?');">
+                                    <a href="?page=clients/hapus&id_client=<?= $client['id_client']; ?>"
+                                        class="btn btn-danger btn-sm"
+                                        onclick="return confirm('Yakin ingin menghapus data ini?');">
                                         <i class="fa fa-trash"></i>
                                     </a>
+
                                 </td>
                             </tr>
                         <?php

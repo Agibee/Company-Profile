@@ -40,9 +40,14 @@
                                 <td><?php echo $kota['nama_provinsi'] ?></td>
                                 <td><?php echo $kota['nama_kota'] ?></td>
                                 <td>
-                                    <a href="?page=kota/ubah&id_kota=<?php echo $kota['id_kota'] ?>" class="btn btn-success">Ubah</a>
-                                    <a href="hapus.php?id_kota=<?php echo $kota['id_kota'] ?>" class="btn btn-danger" onclick="return confirm('Yakin hapus data ini?')">Hapus</a>
+                                    <a href="?page=kota/ubah&id_kota=<?= $kota['id_kota'] ?>" class="btn btn-success">Ubah</a>
+                                    <a href="hapus.php?id_kota=<?= $kota['id_kota'] ?>"
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Yakin hapus kota <?= addslashes($kota['nama_kota']); ?>?');">
+                                        Hapus
+                                    </a>
                                 </td>
+
                             </tr>
                         <?php
                         }

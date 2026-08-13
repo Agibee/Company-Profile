@@ -1,55 +1,34 @@
 <?php
-include '../koneksi.php'; // pastikan koneksi sudah benar
+include '../koneksi.php';
 
-if (isset($_GET['id_area'])) {
-    $id_area = $_GET['id_area'];
+$id_area = intval($_GET['id_area']); // Aman dari SQL injection
 
-    // Cek apakah ID valid (harus angka)
-    if (!ctype_digit($id_area)) {
+// Cek apakah data ada
+$data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM area WHERE id_area='$id_area'"));
+
+if ($data) {
+    // Hapus data
+    $hapus = mysqli_query($koneksi, "DELETE FROM area WHERE id_area='$id_area'");
+
+    if ($hapus && mysqli_affected_rows($koneksi) > 0) {
+        // Reset AUTO_INCREMENT supaya urut lagi
+        $max_id = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT MAX(id_area) AS max_id FROM area"))['max_id'];
+        $next_id = $max_id ? $max_id + 1 : 1;
+        mysqli_query($koneksi, "ALTER TABLE area AUTO_INCREMENT = $next_id");
+
         echo "<script>
-            alert('ID area tidak valid');
-            window.location.href = '?page=area/index';
-        </script>";
-        exit;
-    }
-
-    // 1️⃣ Cek apakah data dengan ID tersebut ada
-    $stmt = $koneksi->prepare("SELECT id_area FROM area WHERE id_area = ?");
-    $stmt->bind_param("i", $id_area);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows == 0) {
-        echo "<script>
-            alert('Data tidak ditemukan');
-            window.location.href = '?page=area/index';
-        </script>";
-        exit;
-    }
-
-    // 2️⃣ Hapus data dengan prepared statement
-    $stmt_delete = $koneksi->prepare("DELETE FROM area WHERE id_area = ?");
-    $stmt_delete->bind_param("i", $id_area);
-    $stmt_delete->execute();
-
-    // 3️⃣ Cek apakah benar-benar terhapus
-    if ($stmt_delete->affected_rows > 0) {
-        echo "<script>
-            alert('Data berhasil dihapus');
-            window.location.href = '?page=area/index';
+            alert('Data area berhasil dihapus!');
+            window.location.href='?page=area/index';
         </script>";
     } else {
         echo "<script>
-            alert('Gagal menghapus data');
-            window.location.href = '?page=area/index';
+            alert('Gagal menghapus data area!');
+            window.location.href='?page=area/index';
         </script>";
     }
-
-    $stmt->close();
-    $stmt_delete->close();
 } else {
     echo "<script>
-        alert('ID area tidak ditemukan');
-        window.location.href = '?page=area/index';
+        alert('Data area dengan ID $id_area tidak ditemukan!');
+        window.location.href='?page=area/index';
     </script>";
 }

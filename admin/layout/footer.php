@@ -63,19 +63,39 @@
 
   <!-- Page level custom scripts -->
   <script src="assets/js/demo/datatables-demo.js"></script>
-  <!-- TinyMCE 5 CDN (gratis, no API key) -->
-  <!-- TinyMCE 7 (pakai API key) -->
-  <script src="https://cdn.tiny.cloud/1/7a2rhtkgqgf4s7gbuy9rpszbzr19vge6gxitpktrpd78io87/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
-  <script>
-      document.addEventListener("DOMContentLoaded", function() {
-          tinymce.init({
-              selector: '#isi',
-              plugins: 'advlist autolink lists link image charmap preview anchor code fullscreen',
-              toolbar: 'undo redo | styles | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | code',
-              height: 400
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <?php if (isset($_SESSION['success'])): ?>
+      <script>
+          Swal.fire({
+              position: "center",
+              icon: 'success',
+              title: "<?= $_SESSION['success']; ?>",
+              showConfirmButton: false,
+              timer: 1500
           });
-      });
-  </script> 
+      </script>
+  <?php unset($_SESSION['success']);
+    endif; ?>
+
+  <?php if (isset($_SESSION['error'])): ?>
+      <script>
+          Swal.fire({
+              position: "center",
+              icon: 'error',
+              title: "<?= $_SESSION['error']; ?>",
+              showConfirmButton: false,
+              timer: 1500
+          });
+      </script>
+  <?php unset($_SESSION['error']);
+    endif; ?>
+
+
+  <!-- Tiny MCE -->
+  <script src="https://cdn.tiny.cloud/1/7a2rhtkgqgf4s7gbuy9rpszbzr19vge6gxitpktrpd78io87/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
   <script>
       document.addEventListener("DOMContentLoaded", function() {
           tinymce.init({

@@ -243,43 +243,6 @@
         <p class="text-center text-muted mb-5">Rangkuman Statistik STIFIn</p>
 
         <div class="row justify-content-center g-4">
-            <!-- Top Five Transaksi ID 2025 -->
-            <div class="col-md-4">
-                <div class="card shadow-sm border-0 h-100">
-                    <div class="card-header bg-success text-white fw-bold">
-                        Top Five Transaksi ID 2025
-                    </div>
-                    <div class="card-body p-0">
-                        <table class="table table-striped text-center align-middle mb-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Nama Cabang</th>
-                                    <th>Jumlah</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $transaksi = $koneksi->query("
-                                    SELECT c.nama_cabang, COUNT(cl.id_client) AS total
-                                    FROM clients cl
-                                    JOIN cabang c ON cl.id_cabang = c.id_cabang
-                                    WHERE YEAR(cl.tanggal_tes) = 2025
-                                    GROUP BY c.id_cabang
-                                    ORDER BY total DESC
-                                    LIMIT 5
-                                ");
-                                while ($row = $transaksi->fetch_assoc()):
-                                ?>
-                                    <tr>
-                                        <td><?= htmlspecialchars($row['nama_cabang']) ?></td>
-                                        <td><?= number_format($row['total']) ?></td>
-                                    </tr>
-                                <?php endwhile; ?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
 
             <!-- Top Ten Cabang -->
             <div class="col-md-4">
@@ -307,6 +270,44 @@
                                     LIMIT 10
                                 ");
                                 while ($row = $topCabang->fetch_assoc()):
+                                ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['nama_cabang']) ?></td>
+                                        <td><?= number_format($row['total']) ?></td>
+                                    </tr>
+                                <?php endwhile; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Five Transaksi ID 2025 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-header bg-success text-white fw-bold">
+                        Top Five Transaksi ID 2025
+                    </div>
+                    <div class="card-body p-0">
+                        <table class="table table-striped text-center align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Nama Cabang</th>
+                                    <th>Jumlah</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $transaksi = $koneksi->query("
+                                    SELECT c.nama_cabang, COUNT(cl.id_client) AS total
+                                    FROM clients cl
+                                    JOIN cabang c ON cl.id_cabang = c.id_cabang
+                                    WHERE YEAR(cl.tanggal_tes) = 2025
+                                    GROUP BY c.id_cabang
+                                    ORDER BY total DESC
+                                    LIMIT 5
+                                ");
+                                while ($row = $transaksi->fetch_assoc()):
                                 ?>
                                     <tr>
                                         <td><?= htmlspecialchars($row['nama_cabang']) ?></td>

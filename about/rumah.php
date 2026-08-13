@@ -5,7 +5,7 @@
     <!-- Judul Halaman -->
     <div class="text-center mb-5">
         <h2 class="text-success fw-bold">Rumah Qur'an STIFIn</h2>
-        <img src="image/rumah.webp" alt="STIFIn Institute" style="width:20%;">
+        <img src="image/yayasan_stifin.webp" alt="STIFIn Institute" style="width:20%;">
         <br><br>
     </div>
 

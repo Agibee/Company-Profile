@@ -31,17 +31,21 @@
                         $no = 1;
                         $provinsi = mysqli_query($koneksi, "SELECT * FROM provinsi ORDER BY id_provinsi ASC");
                         while ($data = mysqli_fetch_array($provinsi)) {
-                        ?>
-                            <tr>
+                        ?><tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $data['nama_provinsi'] ?></td>
                                 <td>
                                     <a href="?page=provinsi/ubah&id_provinsi=<?= $data['id_provinsi'] ?>" class="btn btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="?page=provinsi/hapus&id_provinsi=<?= $data['id_provinsi'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="?page=provinsi/hapus&id_provinsi=<?= $data['id_provinsi'] ?>"
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Yakin ingin menghapus provinsi <?= addslashes($data['nama_provinsi']) ?>?')">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
+
                         <?php
                         }
                         ?>

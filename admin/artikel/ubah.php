@@ -20,13 +20,15 @@ $data = mysqli_fetch_assoc(mysqli_query($koneksi, "SELECT * FROM artikel WHERE i
 
                 <div class="mb-3">
                     <label>Gambar</label><br>
-                    <img src="assets/img/artikel/<?= $data['gambar']; ?>" width="120" class="rounded mb-2">
+                    <?php if (!empty($data['gambar'])): ?>
+                        <img src="assets/img/artikel/<?= $data['gambar']; ?>" width="120" class="rounded mb-2">
+                    <?php endif; ?>
                     <input type="file" name="gambar" class="form-control">
                 </div>
 
                 <div class="mb-3">
                     <label>Isi</label>
-                    <textarea name="isi" rows="6" class="form-control" required><?= htmlspecialchars($data['isi']); ?></textarea>
+                    <textarea id="isi" name="isi" rows="10" class="form-control"><?= $data['isi']; ?></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Update</button>

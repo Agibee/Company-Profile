@@ -39,9 +39,14 @@
                                     <a href="?page=area/ubah&id_area=<?= $data['id_area'] ?>" class="btn btn-success">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    <a href="?page=area/hapus&id_area=<?= $data['id_area'] ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                                    <a href="?page=area/hapus&id_area=<?= $data['id_area'] ?>"
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Yakin ingin menghapus area <?= addslashes($data['nama_area']) ?>?')">
+                                        <i class="fa fa-trash"></i>
+                                    </a>
                                 </td>
                             </tr>
+
                         <?php
                         }
                         ?>

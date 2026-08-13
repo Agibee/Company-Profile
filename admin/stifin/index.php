@@ -4,9 +4,10 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Tabel Konsep STIFIn</h1>
     <p class="mb-4">
-        Data ini menampilkan daftar konsep STIFIn berdasarkan tipe, judul, deskripsi singkat, dan gambar.
-        Untuk informasi lebih lanjut, kamu bisa menambah, mengubah, atau menghapus data.
+        Data berikut menampilkan daftar konsep STIFIn beserta tipe, judul, deskripsi singkat, dan gambar.
+        Kamu dapat menambahkan, mengubah, atau menghapus data untuk informasi lebih lengkap.
     </p>
+
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
